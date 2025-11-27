@@ -1,0 +1,120 @@
+.dfh-product-form-wrapper {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #eee;
+  background: #fdfdfd;
+  border-radius: 5px;
+}
+
+.dfh-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.dfh-field-container {
+  padding: 0 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* Grid Sistemi */
+.dfh-col-12-12 {
+  width: 100%;
+}
+.dfh-col-6-12 {
+  width: 50%;
+}
+.dfh-col-4-12 {
+  width: 33.33%;
+}
+.dfh-col-3-12 {
+  width: 25%;
+}
+.dfh-col-2-12 {
+  width: 16.66%;
+}
+.dfh-col-1-12 {
+  width: 8.33%;
+}
+
+@media (max-width: 600px) {
+  .dfh-field-container {
+    width: 100% !important;
+  }
+}
+
+.dfh-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.required {
+  color: red;
+}
+
+.dfh-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Image Radio */
+.dfh-image-radio-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dfh-image-option {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.dfh-image-option:hover {
+  background: #f0f0f0;
+}
+
+.dfh-image-option input {
+  display: none;
+} /* Radio'yu gizle */
+
+.dfh-image-option img {
+  display: block;
+  max-width: 80px;
+  height: auto;
+  margin: 0 auto 5px;
+  border: 1px solid #ddd;
+}
+
+/* Seçili Görsel */
+.dfh-image-option input:checked + img {
+  border-color: #007cba;
+  box-shadow: 0 0 0 2px #007cba;
+}
+.dfh-image-option input:checked ~ .dfh-opt-name {
+  font-weight: bold;
+  color: #007cba;
+}
+/* Sadece İkon Stili (Tooltip kutusu JS ile oluşturuluyor) */
+.dfh-tooltip-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: help;
+  margin-left: 5px;
+}
+/* Başka tooltip kodu ekleme, JS halledecek */

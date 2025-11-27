@@ -1,0 +1,80 @@
+/* Grid ve Genel Düzen */
+#dfh-builder-wrapper {
+  max-width: 1000px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccd0d4;
+}
+.dfh-toolbar {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+.dfh-tools .button {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* Field Item */
+.dfh-field-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.dfh-field-header {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  cursor: move;
+}
+.dfh-handle {
+  margin-right: 10px;
+  cursor: move;
+  color: #999;
+}
+.dfh-field-title {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.dfh-type-badge {
+  background: #2271b1;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-right: auto;
+}
+.dfh-var-preview {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  margin-right: 10px;
+  font-size: 11px;
+  color: #d63638;
+}
+
+.dfh-field-body {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+.dfh-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.dfh-col {
+  flex: 1;
+}
+.dfh-col label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
