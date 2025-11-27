@@ -1,24 +1,33 @@
+/* ============================================
+   FORM WRAPPER
+   ============================================ */
+
 .dfh-product-form-wrapper {
-  margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #eee;
-  background: #fdfdfd;
-  border-radius: 5px;
+  margin: 25px 0;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
+/* ============================================
+   GRID SYSTEM
+   ============================================ */
 
 .dfh-grid {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -10px;
+  margin: 0 -12px;
 }
 
 .dfh-field-container {
-  padding: 0 10px;
-  margin-bottom: 15px;
+  padding: 0 12px;
+  margin-bottom: 20px;
   box-sizing: border-box;
 }
 
-/* Grid Sistemi */
+/* Grid Genişlikleri */
 .dfh-col-12-12 {
   width: 100%;
 }
@@ -26,95 +35,345 @@
   width: 50%;
 }
 .dfh-col-4-12 {
-  width: 33.33%;
+  width: 33.333%;
 }
 .dfh-col-3-12 {
   width: 25%;
 }
 .dfh-col-2-12 {
-  width: 16.66%;
+  width: 16.666%;
 }
 .dfh-col-1-12 {
-  width: 8.33%;
+  width: 8.333%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .dfh-field-container {
     width: 100% !important;
   }
 }
 
+/* ============================================
+   LABEL & INPUT
+   ============================================ */
+
 .dfh-label {
   display: block;
   font-weight: 600;
-  margin-bottom: 5px;
-  color: #333;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.required {
-  color: red;
+.dfh-label .required {
+  color: #e74c3c;
+  font-weight: 700;
+  margin-left: 2px;
 }
 
-.dfh-input {
+.dfh-input,
+.dfh-input[type="text"],
+.dfh-input[type="number"],
+.dfh-input[type="email"],
+.dfh-input[type="tel"],
+.dfh-input[type="file"],
+select.dfh-input,
+textarea.dfh-input {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
-/* Image Radio */
+.dfh-input:focus,
+select.dfh-input:focus,
+textarea.dfh-input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+textarea.dfh-input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ============================================
+   TOOLTIP
+   ============================================ */
+
+.dfh-tooltip-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background: #3498db;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: help;
+  margin-left: 6px;
+  vertical-align: middle;
+  transition: all 0.2s;
+}
+
+.dfh-tooltip-icon:hover {
+  background: #2980b9;
+  transform: scale(1.15);
+}
+
+/* Tooltip kutusu JavaScript ile oluşturulur */
+
+/* ============================================
+   RADIO BUTTONS
+   ============================================ */
+
+.dfh-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dfh-radio-label {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fafafa;
+}
+
+.dfh-radio-label:hover {
+  background: #f0f8ff;
+  border-color: #3498db;
+}
+
+.dfh-radio-label input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.dfh-radio-label input[type="radio"]:checked + span {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* ============================================
+   CHECKBOX
+   ============================================ */
+
+.dfh-checkbox-label {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fafafa;
+}
+
+.dfh-checkbox-label:hover {
+  background: #f0f8ff;
+  border-color: #3498db;
+}
+
+.dfh-checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+/* ============================================
+   IMAGE RADIO
+   ============================================ */
+
 .dfh-image-radio-group {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .dfh-image-option {
   cursor: pointer;
-  border: 2px solid transparent;
-  padding: 5px;
-  border-radius: 4px;
+  border: 3px solid transparent;
+  padding: 10px;
+  border-radius: 8px;
   text-align: center;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  background: #fafafa;
+  min-width: 100px;
 }
 
 .dfh-image-option:hover {
-  background: #f0f0f0;
+  background: #f0f8ff;
+  border-color: #3498db;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
 }
 
-.dfh-image-option input {
+.dfh-image-option input[type="radio"] {
   display: none;
-} /* Radio'yu gizle */
+}
 
 .dfh-image-option img {
   display: block;
-  max-width: 80px;
+  max-width: 100px;
   height: auto;
-  margin: 0 auto 5px;
-  border: 1px solid #ddd;
+  margin: 0 auto 8px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  transition: all 0.3s;
 }
 
-/* Seçili Görsel */
-.dfh-image-option input:checked + img {
-  border-color: #007cba;
-  box-shadow: 0 0 0 2px #007cba;
+.dfh-image-option input:checked ~ img {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
+
+.dfh-opt-name {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
 .dfh-image-option input:checked ~ .dfh-opt-name {
-  font-weight: bold;
-  color: #007cba;
+  font-weight: 700;
+  color: #3498db;
 }
-/* Sadece İkon Stili (Tooltip kutusu JS ile oluşturuluyor) */
-.dfh-tooltip-icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  background: #333;
-  color: #fff;
-  border-radius: 50%;
+
+/* ============================================
+   FILE UPLOAD
+   ============================================ */
+
+.dfh-file-input {
+  padding: 8px;
+  border: 2px dashed #ddd;
+  background: #f9f9f9;
+}
+
+.dfh-file-input:hover {
+  border-color: #3498db;
+  background: #f0f8ff;
+}
+
+.dfh-file-help {
+  display: block;
+  margin-top: 6px;
   font-size: 12px;
-  cursor: help;
-  margin-left: 5px;
+  color: #777;
+  font-style: italic;
 }
-/* Başka tooltip kodu ekleme, JS halledecek */
+
+/* ============================================
+   OFFER BOX (Teklif Al)
+   ============================================ */
+
+#dfh-offer-box {
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+  border: 2px solid #ffc107;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+#dfh-offer-box p {
+  color: #856404;
+  font-weight: 700;
+  margin-bottom: 18px;
+  font-size: 17px;
+}
+
+#dfh-offer-box .dashicons {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+#dfh-offer-box .button {
+  background: #007cba;
+  color: #fff;
+  padding: 14px 28px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 124, 186, 0.3);
+}
+
+#dfh-offer-box .button:hover {
+  background: #005a87;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 124, 186, 0.4);
+}
+
+#dfh-offer-box .button .dashicons {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* ============================================
+   VALIDATION ERRORS
+   ============================================ */
+
+.dfh-input.error,
+.dfh-field-container.error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 600px) {
+  .dfh-product-form-wrapper {
+    padding: 15px;
+  }
+
+  .dfh-grid {
+    margin: 0 -8px;
+  }
+
+  .dfh-field-container {
+    padding: 0 8px;
+    margin-bottom: 15px;
+  }
+
+  .dfh-image-radio-group {
+    gap: 10px;
+  }
+
+  .dfh-image-option {
+    min-width: 80px;
+  }
+
+  .dfh-image-option img {
+    max-width: 80px;
+  }
+
+  .dfh-live-price {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
