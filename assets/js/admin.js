@@ -22,17 +22,39 @@ jQuery(document).ready(function ($) {
     width,
     required,
     tooltip,
-    options
+    options,
+    threshold
   ) {
     var extraHtml = "";
 
-    // Select/Radio/Image-Radio için Seçenekler
     if (type === "select" || type === "radio" || type === "image_radio") {
-      extraHtml = `
+      extraHtml += `
             <div class="dfh-row">
                 <div class="dfh-col">
                     <label>Seçenekler (değer | Label)</label>
                     <textarea class="widefat" rows="4" name="dfh_fields[${index}][options]">${options}</textarea>
+                </div>
+            </div>`;
+    }
+
+    if (type === "file") {
+      extraHtml += `
+            <div class="dfh-row">
+                <div class="dfh-col">
+                    <label>İzin Verilen Uzantılar</label>
+                    <input type="text" class="widefat" name="dfh_fields[${index}][options]" value="${options}" placeholder="jpg, png, pdf">
+                </div>
+            </div>`;
+    }
+
+    // YENİ: Number için Barem Alanı
+    if (type === "number") {
+      extraHtml += `
+            <div class="dfh-row" style="background: #eef5fa; padding: 10px; border-radius: 4px;">
+                <div class="dfh-col">
+                    <label>Teklif Baremi (Opsiyonel)</label>
+                    <input type="number" class="widefat" name="dfh_fields[${index}][threshold]" value="${threshold}" placeholder="Örn: 1000">
+                    <p class="description">Bu değer aşılırsa 'Sepete Ekle' gizlenir, 'Teklif Al' butonu çıkar.</p>
                 </div>
             </div>`;
     }
@@ -102,9 +124,6 @@ jQuery(document).ready(function ($) {
         `;
   }
 
-  // --- YENİ ALAN EKLEME ---
-  // Eğer admin.php'de buton HTML'i eklemediysek, sadece JS ile buton eklemek yetmez.
-  // Ancak mevcut yapıda admin.php'deki HTML butonları kullanıyoruz.
   $(".dfh-add-field").on("click", function () {
     var type = $(this).data("type");
     fieldIndex++;
@@ -117,13 +136,13 @@ jQuery(document).ready(function ($) {
       "12/12",
       "no",
       "",
+      "",
       ""
     );
     container.append(html);
     $(".dfh-empty-placeholder").addClass("hidden");
   });
 
-  // --- DUPLICATE ---
   $(document).on("click", ".dfh-duplicate-field", function (e) {
     e.preventDefault();
     var item = $(this).closest(".dfh-field-item");
@@ -135,8 +154,11 @@ jQuery(document).ready(function ($) {
     var required = item.find('select[name*="[required]"]').val();
     var tooltip = item.find('textarea[name*="[tooltip]"]').val();
 
-    // Options (Select/Radio/Image-Radio) için
-    var options = item.find('textarea[name*="[options]"]').val() || "";
+    var options =
+      item.find('textarea[name*="[options]"]').val() ||
+      item.find('input[name*="[options]"]').val() ||
+      "";
+    var threshold = item.find('input[name*="[threshold]"]').val() || ""; // Barem verisi
 
     var html = getFieldTemplate(
       fieldIndex,
@@ -146,12 +168,12 @@ jQuery(document).ready(function ($) {
       width,
       required,
       tooltip,
-      options
+      options,
+      threshold
     );
     item.after(html);
   });
 
-  // Toggle ve Remove kodları aynı...
   $(document).on("click", ".dfh-toggle-field", function () {
     $(this).closest(".dfh-field-item").find(".dfh-field-body").slideToggle();
   });
