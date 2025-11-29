@@ -1,379 +1,401 @@
-/* ============================================
-   FORM WRAPPER
-   ============================================ */
-
-.dfh-product-form-wrapper {
-  margin: 25px 0;
-  padding: 25px;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+/* ===========================================
+   DFH FORM CONTAINER
+   =========================================== */
+.dfh-form {
+    margin: 20px 0;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* ============================================
+/* ===========================================
    GRID SYSTEM
-   ============================================ */
-
+   =========================================== */
 .dfh-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -12px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
 }
 
-.dfh-field-container {
-  padding: 0 12px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
+.dfh-field-wrap {
+    padding: 0 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
-/* Grid Genişlikleri */
-.dfh-col-12-12 {
-  width: 100%;
-}
-.dfh-col-6-12 {
-  width: 50%;
-}
-.dfh-col-4-12 {
-  width: 33.333%;
-}
-.dfh-col-3-12 {
-  width: 25%;
-}
-.dfh-col-2-12 {
-  width: 16.666%;
-}
-.dfh-col-1-12 {
-  width: 8.333%;
-}
+.dfh-col-12-12 { width: 100%; }
+.dfh-col-6-12 { width: 50%; }
+.dfh-col-4-12 { width: 33.333%; }
+.dfh-col-3-12 { width: 25%; }
 
 @media (max-width: 768px) {
-  .dfh-field-container {
-    width: 100% !important;
-  }
+    .dfh-field-wrap { width: 100% !important; }
 }
 
-/* ============================================
-   LABEL & INPUT
-   ============================================ */
-
+/* ===========================================
+   LABEL POSITIONS
+   =========================================== */
 .dfh-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #2c3e50;
-  font-size: 14px;
-  line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
 }
 
-.dfh-label .required {
-  color: #e74c3c;
-  font-weight: 700;
-  margin-left: 2px;
+.dfh-label-text { flex-shrink: 0; }
+.dfh-req { color: #e00; font-weight: 700; }
+
+/* Label solda */
+.dfh-label-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
 }
 
-.dfh-input,
-.dfh-input[type="text"],
-.dfh-input[type="number"],
-.dfh-input[type="email"],
-.dfh-input[type="tel"],
-.dfh-input[type="file"],
-select.dfh-input,
-textarea.dfh-input {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 15px;
-  line-height: 1.5;
-  transition: all 0.3s ease;
-  background-color: #fff;
-  box-sizing: border-box;
+.dfh-label-left .dfh-label {
+    width: 120px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
 }
 
-.dfh-input:focus,
-select.dfh-input:focus,
-textarea.dfh-input:focus {
-  border-color: #3498db;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+.dfh-label-left .dfh-input-wrap {
+    flex: 1;
 }
 
-textarea.dfh-input {
-  resize: vertical;
-  min-height: 100px;
+/* ===========================================
+   TOOLTIP - Element altında
+   =========================================== */
+.dfh-tip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #0073aa;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: help;
+    flex-shrink: 0;
+    margin-left: 5px;
 }
 
-/* ============================================
-   TOOLTIP
-   ============================================ */
-
-.dfh-tooltip-icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 18px;
-  height: 18px;
-  background: #3498db;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: help;
-  margin-left: 6px;
-  vertical-align: middle;
-  transition: all 0.2s;
+.dfh-tip:hover {
+    background: #005a87;
 }
 
-.dfh-tooltip-icon:hover {
-  background: #2980b9;
-  transform: scale(1.15);
+/* Tooltip JS ile oluşturuluyor, ek CSS gerekmez */
+
+/* ===========================================
+   QUOTE LABEL & BUTTON
+   =========================================== */
+.dfh-quote-label {
+    color: #e67e22 !important;
+    font-weight: 700 !important;
+    font-size: 1.2em !important;
 }
 
-/* Tooltip kutusu JavaScript ile oluşturulur */
+#dfh-quote-btn,
+.dfh-quote-btn {
+    display: none;
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    margin-left: 10px;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+    transition: all 0.2s ease;
+}
 
-/* ============================================
-   RADIO BUTTONS
-   ============================================ */
+#dfh-quote-btn:hover,
+.dfh-quote-btn:hover {
+    background: linear-gradient(135deg, #d35400 0%, #c0392b 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.5);
+}
 
+/* Radio seçili durumu */
+.dfh-radio.is-selected,
+.dfh-button-radio.is-selected .dfh-button-radio-inner,
+.dfh-image-radio.is-selected .dfh-image-radio-inner {
+    border-color: #0073aa !important;
+    background: #e6f3ff !important;
+}
+
+/* ===========================================
+   INPUTS
+   =========================================== */
+.dfh-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.dfh-input:focus {
+    border-color: #0073aa;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,115,170,0.1);
+}
+
+/* ===========================================
+   RADIO - CLASSIC
+   =========================================== */
 .dfh-radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.dfh-radio-label {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: #fafafa;
-}
-
-.dfh-radio-label:hover {
-  background: #f0f8ff;
-  border-color: #3498db;
-}
-
-.dfh-radio-label input[type="radio"] {
-  margin-right: 10px;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-}
-
-.dfh-radio-label input[type="radio"]:checked + span {
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-/* ============================================
-   CHECKBOX
-   ============================================ */
-
-.dfh-checkbox-label {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: #fafafa;
-}
-
-.dfh-checkbox-label:hover {
-  background: #f0f8ff;
-  border-color: #3498db;
-}
-
-.dfh-checkbox-label input[type="checkbox"] {
-  margin-right: 10px;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-}
-
-/* ============================================
-   IMAGE RADIO
-   ============================================ */
-
-.dfh-image-radio-group {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.dfh-image-option {
-  cursor: pointer;
-  border: 3px solid transparent;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-  transition: all 0.3s;
-  background: #fafafa;
-  min-width: 100px;
-}
-
-.dfh-image-option:hover {
-  background: #f0f8ff;
-  border-color: #3498db;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
-}
-
-.dfh-image-option input[type="radio"] {
-  display: none;
-}
-
-.dfh-image-option img {
-  display: block;
-  max-width: 100px;
-  height: auto;
-  margin: 0 auto 8px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  transition: all 0.3s;
-}
-
-.dfh-image-option input:checked ~ img {
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
-.dfh-opt-name {
-  display: block;
-  font-size: 13px;
-  color: #555;
-  font-weight: 500;
-  margin-top: 5px;
-}
-
-.dfh-image-option input:checked ~ .dfh-opt-name {
-  font-weight: 700;
-  color: #3498db;
-}
-
-/* ============================================
-   FILE UPLOAD
-   ============================================ */
-
-.dfh-file-input {
-  padding: 8px;
-  border: 2px dashed #ddd;
-  background: #f9f9f9;
-}
-
-.dfh-file-input:hover {
-  border-color: #3498db;
-  background: #f0f8ff;
-}
-
-.dfh-file-help {
-  display: block;
-  margin-top: 6px;
-  font-size: 12px;
-  color: #777;
-  font-style: italic;
-}
-
-/* ============================================
-   OFFER BOX (Teklif Al)
-   ============================================ */
-
-#dfh-offer-box {
-  text-align: center;
-  padding: 25px;
-  background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-  border: 2px solid #ffc107;
-  margin-bottom: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
-}
-
-#dfh-offer-box p {
-  color: #856404;
-  font-weight: 700;
-  margin-bottom: 18px;
-  font-size: 17px;
-}
-
-#dfh-offer-box .dashicons {
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
-}
-
-#dfh-offer-box .button {
-  background: #007cba;
-  color: #fff;
-  padding: 14px 28px;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 124, 186, 0.3);
-}
-
-#dfh-offer-box .button:hover {
-  background: #005a87;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 124, 186, 0.4);
-}
-
-#dfh-offer-box .button .dashicons {
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-/* ============================================
-   VALIDATION ERRORS
-   ============================================ */
-
-.dfh-input.error,
-.dfh-field-container.error {
-  border-color: #e74c3c !important;
-  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-@media (max-width: 600px) {
-  .dfh-product-form-wrapper {
-    padding: 15px;
-  }
-
-  .dfh-grid {
-    margin: 0 -8px;
-  }
-
-  .dfh-field-container {
-    padding: 0 8px;
-    margin-bottom: 15px;
-  }
-
-  .dfh-image-radio-group {
+.dfh-radio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
-  }
+    padding: 12px 15px;
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
 
-  .dfh-image-option {
-    min-width: 80px;
-  }
+.dfh-radio:hover {
+    background: #f0f8ff;
+    border-color: #0073aa;
+}
 
-  .dfh-image-option img {
-    max-width: 80px;
-  }
+.dfh-radio.selected,
+.dfh-radio:has(input:checked) {
+    background: #e6f3ff;
+    border-color: #0073aa;
+}
 
-  .dfh-live-price {
-    font-size: 18px;
-    padding: 15px;
-  }
+.dfh-radio input { margin: 0; }
+
+.dfh-radio-text {
+    font-weight: 500;
+}
+
+.dfh-radio-subtitle {
+    width: 100%;
+    margin-top: 5px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 13px;
+    color: #666;
+}
+
+/* ===========================================
+   RADIO - BUTTON STYLE (Rectangle)
+   =========================================== */
+.dfh-button-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dfh-button-radio {
+    flex: 1;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.dfh-button-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dfh-button-radio-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 15px;
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.dfh-button-radio:hover .dfh-button-radio-inner {
+    background: #f0f8ff;
+    border-color: #0073aa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,115,170,0.15);
+}
+
+.dfh-button-radio input:checked + .dfh-button-radio-inner {
+    background: #0073aa;
+    border-color: #0073aa;
+    color: #fff;
+}
+
+.dfh-button-radio-text {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.dfh-button-radio-subtitle {
+    margin-top: 6px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* ===========================================
+   IMAGE RADIO
+   =========================================== */
+.dfh-image-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.dfh-image-radio {
+    width: 120px;
+    cursor: pointer;
+}
+
+.dfh-image-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dfh-image-radio-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border: 3px solid #e0e0e0;
+    border-radius: 10px;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.dfh-image-radio:hover .dfh-image-radio-inner {
+    border-color: #0073aa;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,115,170,0.2);
+}
+
+.dfh-image-radio input:checked + .dfh-image-radio-inner {
+    border-color: #0073aa;
+    background: #e6f3ff;
+}
+
+.dfh-image-radio-inner img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.dfh-image-radio-text {
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+}
+
+.dfh-image-radio-subtitle {
+    margin-top: 4px;
+    font-size: 11px;
+    color: #666;
+}
+
+/* ===========================================
+   CHECKBOX
+   =========================================== */
+.dfh-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dfh-checkbox:hover {
+    background: #f0f8ff;
+    border-color: #0073aa;
+}
+
+.dfh-checkbox input { margin: 0; }
+.dfh-checkbox-text { font-weight: 500; }
+
+/* ===========================================
+   PRICE BOX
+   =========================================== */
+.dfh-price-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.dfh-price-label {
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 15px;
+}
+
+.dfh-price-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1b5e20;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 600px) {
+    .dfh-form { padding: 15px; }
+    
+    .dfh-price-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .dfh-price-value { font-size: 24px; }
+    
+    .dfh-button-radio-group { flex-direction: column; }
+    .dfh-button-radio { min-width: 100%; }
+    
+    .dfh-image-radio { width: calc(50% - 8px); }
+    .dfh-image-radio-inner img { width: 60px; height: 60px; }
+    
+    .dfh-label-left {
+        flex-direction: column;
+    }
+    
+    .dfh-label-left .dfh-label {
+        width: 100%;
+        padding-top: 0;
+    }
 }

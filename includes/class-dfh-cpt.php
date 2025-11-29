@@ -1,57 +1,40 @@
 <?php
-/**
- * Özel post tiplerini kayıt eder
- */
-
-if (!defined('ABSPATH')) {
-    exit;
-}
+if (!defined('ABSPATH')) exit;
 
 class DFH_CPT {
-    
     public function __construct() {
-        add_action('init', array($this, 'register_post_types'));
+        add_action('init', array($this, 'register'));
     }
 
-    public function register_post_types() {
-        // Form Şablonları Post Type
+    public function register() {
         register_post_type('dfh_form', array(
             'labels' => array(
-                'name' => __('Form Şablonları', 'dinamik-fiyat'),
-                'singular_name' => __('Form Şablonu', 'dinamik-fiyat'),
-                'add_new' => __('Yeni Form Ekle', 'dinamik-fiyat'),
-                'add_new_item' => __('Yeni Form Şablonu Ekle', 'dinamik-fiyat'),
-                'edit_item' => __('Formu Düzenle', 'dinamik-fiyat'),
-                'view_item' => __('Formu Görüntüle', 'dinamik-fiyat'),
-                'search_items' => __('Form Ara', 'dinamik-fiyat'),
-                'not_found' => __('Form bulunamadı', 'dinamik-fiyat'),
+                'name' => 'Form Şablonları',
+                'singular_name' => 'Form',
+                'add_new' => 'Yeni Form',
+                'add_new_item' => 'Yeni Form Ekle',
+                'edit_item' => 'Formu Düzenle',
             ),
             'public' => false,
             'show_ui' => true,
             'show_in_menu' => true,
             'menu_position' => 56,
-            'menu_icon' => 'dashicons-list-view',
+            'menu_icon' => 'dashicons-calculator',
             'supports' => array('title'),
-            'capability_type' => 'post',
-            'map_meta_cap' => true,
         ));
 
-        // Hesaplama Kuralları Post Type
         register_post_type('dfh_rule', array(
             'labels' => array(
-                'name' => __('Hesaplama Kuralları', 'dinamik-fiyat'),
-                'singular_name' => __('Hesaplama Kuralı', 'dinamik-fiyat'),
-                'add_new' => __('Yeni Kural Ekle', 'dinamik-fiyat'),
-                'add_new_item' => __('Yeni Hesaplama Kuralı Ekle', 'dinamik-fiyat'),
-                'edit_item' => __('Kuralı Düzenle', 'dinamik-fiyat'),
-                'search_items' => __('Kural Ara', 'dinamik-fiyat'),
+                'name' => 'Hesaplama Kuralları',
+                'singular_name' => 'Kural',
+                'add_new' => 'Yeni Kural',
+                'add_new_item' => 'Yeni Kural Ekle',
+                'edit_item' => 'Kuralı Düzenle',
             ),
             'public' => false,
             'show_ui' => true,
             'show_in_menu' => 'edit.php?post_type=dfh_form',
             'supports' => array('title'),
-            'capability_type' => 'post',
-            'map_meta_cap' => true,
         ));
     }
 }
